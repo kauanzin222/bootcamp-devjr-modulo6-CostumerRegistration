@@ -18,6 +18,7 @@ $("#cepInput").on('blur', function (){
         $("#cityInput").val(cep.localidade); 
         $("#stateInput").val(cep.estado);
         
+        $("#numberInput").prop("disabled", false);
     })
 })
    
