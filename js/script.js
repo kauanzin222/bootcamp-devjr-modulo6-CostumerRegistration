@@ -36,10 +36,16 @@ function IncluiValorEndereco(cep) {
     $("#cityInput").val(cep.localidade);
     $("#stateInput").val(cep.estado);
 
-    // Habilita o input Numero
-    $("#numberInput").prop("disabled", false);
+    HabilitaNumero(0);
 }
 
 function LimpaErro() {
     $("#erro").html("");
+}
+
+function HabilitaNumero(status) {
+    if (status == 1)
+      $("#numberInput").prop("disabled", true);
+    else
+      $("#numberInput").prop("disabled", false);
 }
