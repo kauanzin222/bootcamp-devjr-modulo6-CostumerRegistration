@@ -38,8 +38,7 @@ function insertAdressValue(cep) {
     $("#neighbourInput").val(cep.bairro);
     $("#cityInput").val(cep.localidade);
     $("#stateInput").val(cep.estado);
-
-<<<<<<< HEAD
+    
     ableNumber();
 }
 
@@ -53,18 +52,4 @@ function ableNumber() {
 
 function disableNumber() {
     $("#numberInput").prop("disabled", true);
-=======
-    HabilitaNumero(0);
-}
-
-function LimpaErro() {
-    $("#erro").html("");
-}
-
-function HabilitaNumero(status) {
-    if (status == 1)
-      $("#numberInput").prop("disabled", true);
-    else
-      $("#numberInput").prop("disabled", false);
->>>>>>> b91a9db4400b69059be8d39240d18801a32ba9a8
 }
