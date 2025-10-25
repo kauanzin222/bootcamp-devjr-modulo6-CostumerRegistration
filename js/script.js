@@ -37,8 +37,8 @@ function insertAdressValue(cep) {
     $("#adressInput").val(cep.logradouro);
     $("#neighbourInput").val(cep.bairro);
     $("#cityInput").val(cep.localidade);
-    $("#stateInput").val(cep.estado);
-    
+    $("#ufInput").val(cep.uf);
+
     ableNumber();
 }
 
@@ -53,3 +53,58 @@ function ableNumber() {
 function disableNumber() {
     $("#numberInput").prop("disabled", true);
 }
+
+var clients = [];
+
+function registerClient () {
+    disableNumber();
+
+    var client = {
+        id: clients.length + 1,
+        fullName: $("#nameInput").val() + " " + $("#surnameInput").val(),
+        adress: $("#adressInput").val(),
+        CEP: $("#cepInput").val(),
+        neighbour: $("#neighbourInput").val(),
+        city: $("#cityInput").val(),
+        uf: $("#ufInput").val(),
+    };
+
+    saveClient(client);
+
+    addNewRow(client);
+
+     document.getElementById("formClient").reset();
+}
+
+function saveClient(client) {
+    clients.push(client);
+}
+
+function addNewRow (client) {
+    var table = document.getElementById("tableClient");
+
+    var newRow = table.insertRow();
+
+    var idNode = document.createTextNode(client.id);
+    newRow.insertCell().appendChild(idNode);
+
+    var nameNode = document.createTextNode(client.fullName);
+    newRow.insertCell().appendChild(nameNode);
+
+    var adressNode = document.createTextNode(client.adress);
+    newRow.insertCell().appendChild(adressNode);
+
+    var CEPNode = document.createTextNode(client.CEP);
+    newRow.insertCell().appendChild(CEPNode);
+
+    var neighbourNode = document.createTextNode(client.neighbour);
+    newRow.insertCell().appendChild(neighbourNode);
+
+    var cityNode = document.createTextNode(client.city);
+    newRow.insertCell().appendChild(cityNode);
+
+    var ufNode = document.createTextNode(client.uf);
+    newRow.insertCell().appendChild(ufNode);
+}
+
+
