@@ -28,7 +28,7 @@ The main goal was to apply the knowledge acquired throughout the course in a pra
 
 ---
 ## 📌 Final Result
-![resultado_final](images/result.gif)
+![resultado_final](images/final_result.gif)
 
 ---
 
