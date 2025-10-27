@@ -1,6 +1,6 @@
 # Customer Registration 
 
-![Project Status](https://img.shields.io/badge/Status-In_Progress-yellow)
+![Project Status](https://img.shields.io/badge/Status-Finished-green)
 
 ## 📝 Description
 
@@ -28,7 +28,7 @@ The main goal was to apply the knowledge acquired throughout the course in a pra
 
 ---
 ## 📌 Final Result
-
+![resultado_final](images/result.gif)
 
 ---
 

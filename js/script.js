@@ -15,6 +15,7 @@ $("#cepInput").on('blur', function () {
         if ("erro" in cep) {
             $("#erro").html("CEP não encontrado!");
             disableNumber();
+            disableButton();
         }
         else {
             cleanErrorMessage();
@@ -30,6 +31,7 @@ $("#cepInput").on('blur', function () {
             $("#erro").html("CEP inválido!");
 
         disableNumber();
+        disableButton();
     });
 });
 
@@ -40,14 +42,23 @@ function insertAdressValue(cep) {
     $("#ufInput").val(cep.uf);
 
     ableNumber();
+    ableButton();
 }
 
 function cleanErrorMessage() {
     $("#erro").html("");
 }
 
+function ableButton () {
+    $("#saveButton").prop("disabled", false);
+}
+
 function ableNumber() {
     $("#numberInput").prop("disabled", false);
+}
+
+function disableButton() {
+    $("#saveButton").prop("disabled", true);
 }
 
 function disableNumber() {
@@ -56,8 +67,9 @@ function disableNumber() {
 
 var clients = [];
 
-function registerClient () {
+function registerClient() {
     disableNumber();
+    disableButton();
 
     var client = {
         id: clients.length + 1,
@@ -73,38 +85,56 @@ function registerClient () {
 
     addNewRow(client);
 
-     document.getElementById("formClient").reset();
+    document.getElementById("formClient").reset();
 }
 
 function saveClient(client) {
     clients.push(client);
 }
 
-function addNewRow (client) {
+function addNewRow(client) {
     var table = document.getElementById("tableClient");
 
     var newRow = table.insertRow();
 
+    // Insert ID
     var idNode = document.createTextNode(client.id);
-    newRow.insertCell().appendChild(idNode);
+    addCell(newRow, idNode);
 
+    // Insert name
     var nameNode = document.createTextNode(client.fullName);
-    newRow.insertCell().appendChild(nameNode);
+    addCell(newRow, nameNode);
 
+    // Insert adress
     var adressNode = document.createTextNode(client.adress);
-    newRow.insertCell().appendChild(adressNode);
+    let cell = newRow.insertCell();
 
+    cell.className = "d-none d-md-table-cell";
+    cell.appendChild(adressNode);
+
+    // Insert CEP 
     var CEPNode = document.createTextNode(client.CEP);
-    newRow.insertCell().appendChild(CEPNode);
+    cell = newRow.insertCell();
 
+    cell.className = "d-none d-lg-table-cell";
+    cell.appendChild(CEPNode);
+
+    // Insert neighbour 
     var neighbourNode = document.createTextNode(client.neighbour);
-    newRow.insertCell().appendChild(neighbourNode);
+    cell = newRow.insertCell();
 
+    cell.className = "d-none d-sm-table-cell";
+    cell.appendChild(neighbourNode);
+
+    // Insert city
     var cityNode = document.createTextNode(client.city);
-    newRow.insertCell().appendChild(cityNode);
+    addCell(newRow, cityNode);
 
+    // Insert UF
     var ufNode = document.createTextNode(client.uf);
-    newRow.insertCell().appendChild(ufNode);
+    addCell(newRow, ufNode);
 }
 
-
+function addCell(newRow, node) {
+    newRow.insertCell().appendChild(node);
+}

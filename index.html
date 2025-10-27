@@ -18,21 +18,22 @@
 
     <header class="display-6 text-center m-3">Cadastro de Clientes:</header>
 
-    <main class="container mb-3 shadow rounded">
+    <main class="container shadow rounded">
 
+        <!-- Formulário de Cadastro -->
         <section class="pt-4">
             <div class="row justify-content-center">
                 <div class="col-md-11">
                     <form onsubmit="registerClient(); return false;" id="formClient"> 
                         <!-- Nome e Sobrenome -->
                         <div class="row mb-3">
-                            <div class="col">
+                            <div class="col-12 col-sm-6">
                                 <label for="nameInput" class="col-form-label">Nome:</label>
                                 <div class="col">
                                     <input type="text" id="nameInput" class="form-control" required>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-12 col-sm-6">
                                 <label for="surnameInput" class="col-form-label">Sobrenome:</label>
                                 <div class="col">
                                     <input type="text" id="surnameInput" class="form-control" required>
@@ -84,14 +85,14 @@
                         <!-- Estado -->
                         <div class="row mb-3">
                             <label for="ufInput" class="col-form-label">Estado:</label>
-                            <div class="col-lg-3">
+                            <div class="col-lg-2">
                                 <input type="text" id="ufInput" class="form-control" value=" " disabled>
                             </div>
                         </div>
 
                         <div class="row justify-content-center mb-3">
                             <div class="col-2 text-center">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="submit" class="btn btn-primary" id="saveButton" disabled>Salvar</button>
                             </div>
                         </div>
                     </form>
@@ -107,9 +108,9 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nome Completo</th>
-                                <th scope="col">Endereço</th>
-                                <th scope="col">CEP</th>
-                                <th scope="col">Bairro</th>
+                                <th scope="col" class="d-none d-md-table-cell">Endereço</th>
+                                <th scope="col" class="d-none d-lg-table-cell">CEP</th>
+                                <th scope="col" class="d-none d-sm-table-cell">Bairro</th>
                                 <th scope="col">Cidade</th>
                                 <th scope="col">Estado</th>
                             </tr>
