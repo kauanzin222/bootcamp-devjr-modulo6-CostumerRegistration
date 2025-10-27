@@ -28,7 +28,7 @@ The main goal was to apply the knowledge acquired throughout the course in a pra
 
 ---
 ## 📌 Final Result
-![resultado_final](images/final_result.gif)
+![resultado_final](https://github.com/kauanzin222/bootcamp-devjr-modulo6-CostumerRegistration/blob/main/images/final_result.gif)
 
 ---
 
